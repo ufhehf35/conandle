@@ -1,13 +1,84 @@
-body { background: #1a1a1a; color: white; font-family: sans-serif; text-align: center; }
-.game-container { max-width: 800px; margin: auto; }
-.search-box { position: relative; margin: 20px; }
-input { padding: 10px; width: 80%; border-radius: 5px; border: none; }
-#suggestions { position: absolute; left: 10%; width: 80%; background: #333; z-index: 10; }
-.suggestion-item { padding: 10px; cursor: pointer; border-bottom: 1px solid #444; }
-.row { display: flex; justify-content: space-between; margin-bottom: 5px; }
-.row span { width: 14%; padding: 10px; border: 1px solid #444; font-size: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.correct { background-color: #4caf50; }
-.wrong { background-color: #f44336; }
-.partial { background-color: #ff9800; }
-.header { font-weight: bold; background: #333; }
-img { width: 40px; height: 40px; border-radius: 50%; }
+body { 
+    /* Change 'background.jpg' to your actual file name */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.hidden { display: none; }
+
+.game-container { max-width: 900px; margin: auto; }
+
+/* Result Area */
+.target-reveal {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ff9800;
+}
+.target-reveal img { width: 100px; height: 100px; border-radius: 10px; }
+
+/* Search & Buttons */
+.search-box { position: relative; margin: 20px 0; display: flex; gap: 10px; justify-content: center; }
+input { padding: 12px; width: 60%; border-radius: 5px; border: none; font-size: 16px; }
+#giveUpBtn, .play-again { 
+    padding: 10px 20px; 
+    background: #f44336; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold;
+}
+.play-again { background: #4caf50; margin-top: 10px; }
+
+/* Suggestions with Images */
+#suggestions { 
+    position: absolute; 
+    top: 50px; 
+    width: 60%; 
+    background: #222; 
+    z-index: 100; 
+    border-radius: 0 0 5px 5px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.suggestion-item { 
+    padding: 8px; 
+    cursor: pointer; 
+    border-bottom: 1px solid #444; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    text-align: left;
+}
+.suggestion-item:hover { background: #444; }
+.suggestion-item img { width: 40px; height: 40px; border-radius: 5px; object-fit: cover; }
+
+/* Table Rows */
+.row { display: flex; justify-content: space-between; margin-bottom: 8px; animation: slideIn 0.5s ease; }
+@keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+.row span { 
+    width: 13%; 
+    padding: 10px 5px; 
+    border: 1px solid #444; 
+    font-size: 13px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: rgba(0,0,0,0.5);
+    word-break: break-word;
+}
+
+.correct { background-color: #4caf50 !important; }
+.wrong { background-color: #f44336 !important; }
+.header { font-weight: bold; background: #333 !important; }
+.row img { width: 45px; height: 45px; border-radius: 5px; }
