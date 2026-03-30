@@ -1,0 +1,13 @@
+body { background: #1a1a1a; color: white; font-family: sans-serif; text-align: center; }
+.game-container { max-width: 800px; margin: auto; }
+.search-box { position: relative; margin: 20px; }
+input { padding: 10px; width: 80%; border-radius: 5px; border: none; }
+#suggestions { position: absolute; left: 10%; width: 80%; background: #333; z-index: 10; }
+.suggestion-item { padding: 10px; cursor: pointer; border-bottom: 1px solid #444; }
+.row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.row span { width: 14%; padding: 10px; border: 1px solid #444; font-size: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.correct { background-color: #4caf50; }
+.wrong { background-color: #f44336; }
+.partial { background-color: #ff9800; }
+.header { font-weight: bold; background: #333; }
+img { width: 40px; height: 40px; border-radius: 50%; }
