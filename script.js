@@ -1,52 +1,52 @@
 const characters = [
-    // --- Protagonists & Close Allies ---
-    { name: "Shinichi Kudo", gender: "Male", age: "17", height: "174cm", arc: "Introduction", origin: "Japan", alias: "Detective", img: "shinichi.png" },
-    { name: "Conan Edogawa", gender: "Male", age: "7", height: "102cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "conan.png" },
-    { name: "Ran Mouri", gender: "Female", age: "17", height: "160cm", arc: "Introduction", origin: "Japan", alias: "Teitan High", img: "ran.png" },
-    { name: "Kogoro Mouri", gender: "Male", age: "38", height: "181cm", arc: "Introduction", origin: "Japan", alias: "Sleeping Kogoro", img: "kogoro.png" },
-    { name: "Eri Kisaki", gender: "Female", age: "38", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Queen of the Bar", img: "eri.png" },
-    { name: "Hiroshi Agasa", gender: "Male", age: "52", height: "160cm", arc: "Introduction", origin: "Japan", alias: "Professor", img: "agasa.png" },
-    { name: "Ai Haibara", gender: "Female", age: "7", height: "104cm", arc: "Haibara", origin: "Japan", alias: "Ex-BO", img: "haibara.png" },
+ // --- Protagonists & Close Allies ---
+  { name: "Shinichi Kudo", gender: "Male", age: "17", height: "174cm", arc: "Introduction", origin: "Japan", alias: "Detective", img: "shinichi.png" },
+  { name: "Conan Edogawa", gender: "Male", age: "7", height: "102cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "conan.png" },
+  { name: "Ran Mouri", gender: "Female", age: "17", height: "160cm", arc: "Introduction", origin: "Japan", alias: "Teitan High", img: "ran.png" },
+  { name: "Kogoro Mouri", gender: "Male", age: "38", height: "181cm", arc: "Introduction", origin: "Japan", alias: "Sleeping Kogoro", img: "kogoro.png" },
+  { name: "Eri Kisaki", gender: "Female", age: "38", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Queen of the Bar", img: "eri.png" },
+  { name: "Hiroshi Agasa", gender: "Male", age: "52", height: "160cm", arc: "Introduction", origin: "Japan", alias: "Professor", img: "agasa.png" },
+  { name: "Ai Haibara", gender: "Female", age: "7", height: "104cm", arc: "Haibara", origin: "Japan", alias: "Ex-BO", img: "haibara.png" },
 
-    // --- Detective Boys ---
-    { name: "Ayumi Yoshida", gender: "Female", age: "7", height: "107cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "ayumi.png" },
-    { name: "Mitsuhiko Tsuburaya", gender: "Male", age: "7", height: "110cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "mitsuhiko.png" },
-    { name: "Genta Kojima", gender: "Male", age: "7", height: "120cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "genta.png" },
+ // --- Detective Boys ---
+  { name: "Ayumi Yoshida", gender: "Female", age: "7", height: "107cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "ayumi.png" },
+  { name: "Mitsuhiko Tsuburaya", gender: "Male", age: "7", height: "110cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "mitsuhiko.png" },
+  { name: "Genta Kojima", gender: "Male", age: "7", height: "120cm", arc: "Introduction", origin: "Japan", alias: "Detective Boys", img: "genta.png" },
 
-    // --- Black Organization & Undercover Agents ---
-    { name: "Gin", gender: "Male", age: "Unknown", height: "190cm", arc: "Introduction", origin: "Unknown", alias: "BO", img: "gin.png" },
-    { name: "Vodka", gender: "Male", age: "Unknown", height: "180cm", arc: "Introduction", origin: "Unknown", alias: "BO", img: "vodka.png" },
-    { name: "Vermouth", gender: "Female", age: "Unknown", height: "170cm", arc: "Vermouth", origin: "USA", alias: "BO", img: "vermouth.png" },
-    { name: "Chianti", gender: "Female", age: "Unknown", height: "165cm", arc: "Black Impact", origin: "Japan", alias: "BO Sniper", img: "chianti.png" },
-    { name: "Korn", gender: "Male", age: "Unknown", height: "Unknown", arc: "Black Impact", origin: "Japan", alias: "BO Sniper", img: "korn.png" },
-    { name: "Renya Karasuma", gender: "Male", age: "99+", height: "Unknown", arc: "Black Bunny's Revenge", origin: "Japan", alias: "The Boss/Anokata", img: "karasuma.png" },
-    { name: "Rum", gender: "Male", age: "Unknown", height: "Unknown", arc: "Rum", origin: "Japan", alias: "BO Second-in-Command", img: "rum.png" },
-    { name: "Rei Furuya", gender: "Male", age: "29", height: "180cm", arc: "Bourbon", origin: "Japan", alias: "Bourbon/Zero", img: "rei.png" },
-    { name: "Hidemi Hondou", gender: "Female", age: "27", height: "Unknown", arc: "Black Impact", origin: "Japan", alias: "Kir", img: "hidemi.png" },
+ // --- Black Organization & Undercover Agents ---
+  { name: "Gin", gender: "Male", age: "Unknown", height: "190cm", arc: "Introduction", origin: "Unknown", alias: "BO", img: "gin.png" },
+  { name: "Vodka", gender: "Male", age: "Unknown", height: "180cm", arc: "Introduction", origin: "Unknown", alias: "BO", img: "vodka.png" },
+  { name: "Vermouth", gender: "Female", age: "Unknown", height: "170cm", arc: "Vermouth", origin: "USA", alias: "BO", img: "vermouth.png" },
+  { name: "Chianti", gender: "Female", age: "Unknown", height: "165cm", arc: "Black Impact", origin: "Japan", alias: "BO Sniper", img: "chianti.png" },
+  { name: "Korn", gender: "Male", age: "Unknown", height: "Unknown", arc: "Black Impact", origin: "Japan", alias: "BO Sniper", img: "korn.png" },
+  { name: "Renya Karasuma", gender: "Male", age: "99+", height: "Unknown", arc: "Black Bunny's Revenge", origin: "Japan", alias: "The Boss/Anokata", img: "karasuma.png" },
+  { name: "Rum", gender: "Male", age: "Unknown", height: "Unknown", arc: "Rum", origin: "Japan", alias: "BO Second-in-Command", img: "rum.png" },
+  { name: "Rei Furuya", gender: "Male", age: "29", height: "180cm", arc: "Bourbon", origin: "Japan", alias: "Bourbon/Zero", img: "rei.png" },
+  { name: "Hidemi Hondou", gender: "Female", age: "27", height: "Unknown", arc: "Black Impact", origin: "Japan", alias: "Kir", img: "hidemi.png" },
 
-    // --- FBI & Law Enforcement ---
-    { name: "Shuichi Akai", gender: "Male", age: "32", height: "188cm", arc: "Vermouth", origin: "USA", alias: "Silver Bullet", img: "akai.png" },
-    { name: "Jodie Starling", gender: "Female", age: "28", height: "Unknown", arc: "Vermouth", origin: "USA", alias: "FBI", img: "jodie.png" },
-    { name: "James Black", gender: "Male", age: "Unknown", height: "Unknown", arc: "Vermouth", origin: "UK/USA", alias: "FBI Chief", img: "james.png" },
-    { name: "Andre Camel", gender: "Male", age: "27", height: "Unknown", arc: "Clash of Red and Black", origin: "USA", alias: "FBI", img: "camel.png" },
+ // --- FBI & Law Enforcement ---
+  { name: "Shuichi Akai", gender: "Male", age: "32", height: "188cm", arc: "Vermouth", origin: "USA", alias: "Silver Bullet", img: "akai.png" },
+  { name: "Jodie Starling", gender: "Female", age: "28", height: "Unknown", arc: "Vermouth", origin: "USA", alias: "FBI", img: "jodie.png" },
+  { name: "James Black", gender: "Male", age: "Unknown", height: "Unknown", arc: "Vermouth", origin: "UK/USA", alias: "FBI Chief", img: "james.png" },
+  { name: "Andre Camel", gender: "Male", age: "27", height: "Unknown", arc: "Clash of Red and Black", origin: "USA", alias: "FBI", img: "camel.png" },
 
-    // --- Osaka Characters ---
-    { name: "Heiji Hattori", gender: "Male", age: "17", height: "174cm", arc: "Diplomat Murder Case", origin: "Japan", alias: "Detective of the West", img: "heiji.png" },
-    { name: "Kazuha Toyama", gender: "Female", age: "17", height: "Unknown", arc: "Naniwa Serial Murder Case", origin: "Japan", alias: "Aikido Expert", img: "kazuha.png" },
-    { name: "Heizo Hattori", gender: "Male", age: "Unknown", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Osaka Police Chief", img: "heizo.png" },
+ // --- Osaka Characters ---
+  { name: "Heiji Hattori", gender: "Male", age: "17", height: "174cm", arc: "Diplomat Murder Case", origin: "Japan", alias: "Detective of the West", img: "heiji.png" },
+  { name: "Kazuha Toyama", gender: "Female", age: "17", height: "Unknown", arc: "Naniwa Serial Murder Case", origin: "Japan", alias: "Aikido Expert", img: "kazuha.png" },
+  { name: "Heizo Hattori", gender: "Male", age: "Unknown", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Osaka Police Chief", img: "heizo.png" },
 
-    // --- Police Force (Tokyo & Others) ---
-    { name: "Juzo Megure", gender: "Male", age: "Unknown", height: "166cm", arc: "Introduction", origin: "Japan", alias: "Inspector", img: "megure.png" },
-    { name: "Wataru Takagi", gender: "Male", age: "26", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Detective", img: "takagi.png" },
-    { name: "Miwako Sato", gender: "Female", age: "28", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Detective", img: "sato.png" },
-    { name: "Ninzaburo Shiratori", gender: "Male", age: "30", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Inspector", img: "shiratori.png" },
-    { name: "Kazunobu Chiba", gender: "Male", age: "24", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Detective", img: "chiba.png" },
-    { name: "Hyoue Kuroda", gender: "Male", age: "50", height: "Unknown", arc: "Rum", origin: "Japan", alias: "NPA Superintendant", img: "kuroda.png" },
+ // --- Police Force (Tokyo & Others) ---
+  { name: "Juzo Megure", gender: "Male", age: "Unknown", height: "166cm", arc: "Introduction", origin: "Japan", alias: "Inspector", img: "megure.png" },
+  { name: "Wataru Takagi", gender: "Male", age: "26", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Detective", img: "takagi.png" },
+  { name: "Miwako Sato", gender: "Female", age: "28", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Detective", img: "sato.png" },
+  { name: "Ninzaburo Shiratori", gender: "Male", age: "30", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Inspector", img: "shiratori.png" },
+  { name: "Kazunobu Chiba", gender: "Male", age: "24", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Detective", img: "chiba.png" },
+  { name: "Hyoue Kuroda", gender: "Male", age: "50", height: "Unknown", arc: "Rum", origin: "Japan", alias: "NPA Superintendant", img: "kuroda.png" },
 
-    // --- Magic Kaito Characters ---
-    { name: "Kaito Kuroba", gender: "Male", age: "17", height: "174cm", arc: "Kaito Kid", origin: "Japan", alias: "Kaitou Kid", img: "kaito.png" },
-    { name: "Toichi Kuroba", gender: "Male", age: "38 (deceased)", height: "Unknown", arc: "Kaito Kid", origin: "Japan", alias: "Original Kid", img: "toichi.png" },
-    { name: "Saguru Hakuba", gender: "Male", age: "17", height: "180cm", arc: "Gathered Detectives", origin: "UK/Japan", alias: "Detective", img: "hakuba.png" }
+ // --- Magic Kaito Characters ---
+  { name: "Kaito Kuroba", gender: "Male", age: "17", height: "174cm", arc: "Kaito Kid", origin: "Japan", alias: "Kaitou Kid", img: "kaito.png" },
+  { name: "Toichi Kuroba", gender: "Male", age: "38 (deceased)", height: "Unknown", arc: "Kaito Kid", origin: "Japan", alias: "Original Kid", img: "toichi.png" },
+  { name: "Saguru Hakuba", gender: "Male", age: "17", height: "180cm", arc: "Gathered Detectives", origin: "UK/Japan", alias: "Detective", img: "hakuba.png" }
      
  // --- Police & Investigators ---
   { name: "Misao Yamamura", gender: "Male", age: "Unknown", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Gunma Police", img: "yamamura.png" },
