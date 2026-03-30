@@ -46,7 +46,7 @@ const characters = [
  // --- Magic Kaito Characters ---
   { name: "Kaito Kuroba", gender: "Male", age: "17", height: "174cm", arc: "Kaito Kid", origin: "Japan", alias: "Kaitou Kid", img: "kaito.png" },
   { name: "Toichi Kuroba", gender: "Male", age: "38 (deceased)", height: "Unknown", arc: "Kaito Kid", origin: "Japan", alias: "Original Kid", img: "toichi.png" },
-  { name: "Saguru Hakuba", gender: "Male", age: "17", height: "180cm", arc: "Gathered Detectives", origin: "UK/Japan", alias: "Detective", img: "hakuba.png" }
+  { name: "Saguru Hakuba", gender: "Male", age: "17", height: "180cm", arc: "Gathered Detectives", origin: "UK/Japan", alias: "Detective", img: "hakuba.png" },
      
  // --- Police & Investigators ---
   { name: "Misao Yamamura", gender: "Male", age: "Unknown", height: "Unknown", arc: "Introduction", origin: "Japan", alias: "Gunma Police", img: "yamamura.png" },
