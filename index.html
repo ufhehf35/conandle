@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detective Conan-Dle 2.0</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Detective Conan-Dle</h1>
+
+        <div id="pinnedResult" class="hidden">
+            <h2 id="resultHeader">Case Solved!</h2>
+            <div class="pinned-card">
+                <img id="pImg" src="" alt="Target">
+                <div class="pinned-stats">
+                    <strong id="pName"></strong>
+                    <p id="pDetails"></p>
+                </div>
+            </div>
+            <button onclick="window.location.reload()" class="btn-play">New Case</button>
+        </div>
+
+        <div class="input-area">
+            <div class="search-wrap">
+                <input type="text" id="charSearch" placeholder="Search Character Name..." autocomplete="off">
+                <div id="suggestionBox"></div>
+            </div>
+            <button id="giveUpBtn">Give Up</button>
+        </div>
+
+        <div class="table-view">
+            <div class="row head">
+                <span>Character</span>
+                <span>Gender</span>
+                <span>Age</span>
+                <span>Height</span>
+                <span>Arc</span>
+                <span>Origin</span>
+                <span>Alias</span>
+            </div>
+            <div id="guessList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
