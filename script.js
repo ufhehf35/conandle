@@ -1,3 +1,14 @@
+// Order of Arcs for the arrow system
+const arcOrder = {
+    "Introduction": 1,
+    "Haibara": 2,
+    "Vermouth": 3,
+    "Kir": 4,
+    "Bourbon": 5,
+    "Scarlet": 6,
+    "Rum": 7
+};
+
 const characters = [
  // --- Protagonists & Close Allies ---
   { "name": "Shinichi Kudo", "gender": "Male", "age": "17", "height": "174cm", "arc": "introduction", "origin": "Japan", "alias": "high school detective", "img": "shinichi.png" },
@@ -126,51 +137,54 @@ const suggestionBox = document.getElementById('suggestionBox');
 const guessList = document.getElementById('guessList');
 const giveUpBtn = document.getElementById('giveUpBtn');
 
-// 1. GIVE UP LOGIC
-giveUpBtn.onclick = function() {
-    if (!isGameOver) endTheGame(false);
-};
+giveUpBtn.onclick = () => { if (!isGameOver) endTheGame(false); };
 
-// 2. SEARCH LOGIC (Prevent duplicates & Show Images)
 searchInput.addEventListener('input', () => {
     if (isGameOver) return;
     const val = searchInput.value.toLowerCase().trim();
     suggestionBox.innerHTML = '';
-    
     if (val) {
-        // Only show characters not already guessed
         const filtered = characters.filter(c => 
             c.name.toLowerCase().includes(val) && !guessedNames.includes(c.name)
         );
-
         filtered.forEach(c => {
             const div = document.createElement('div');
             div.className = 'suggest-item';
-            div.innerHTML = `
-                <img src="images/${c.img}" onerror="this.src='https://via.placeholder.com/60'">
-                <span>${c.name}</span>
-            `;
+            div.innerHTML = `<img src="images/${c.img}" onerror="this.src='https://via.placeholder.com/60'"><span>${c.name}</span>`;
             div.onclick = () => handleGuess(c);
             suggestionBox.appendChild(div);
         });
     }
 });
 
-// 3. ARROW & COMPARISON SYSTEM
-function getComparison(guessVal, targetVal, isNumeric) {
+function getComparison(guessVal, targetVal, type) {
+    // 1. EXACT MATCH
     if (guessVal === targetVal) return { class: 'correct', arrow: '' };
-    
-    let arrow = '';
-    if (isNumeric) {
-        if (guessVal < targetVal) arrow = ' <span class="arrow">↑</span>';
-        else if (guessVal > targetVal) arrow = ' <span class="arrow">↓</span>';
+
+    // 2. UNKNOWN LOGIC (For Age and Height)
+    if (type === 'number') {
+        if (guessVal === "Unknown" || targetVal === "Unknown") {
+            return { class: 'wrong', arrow: '' }; // Red, no arrow
+        }
+        // Both are numbers, compare them
+        let arrow = guessVal < targetVal ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
+        return { class: 'wrong', arrow: arrow };
     }
-    return { class: 'wrong', arrow: arrow };
+
+    // 3. ARC SYSTEM LOGIC
+    if (type === 'arc') {
+        let guessPower = arcOrder[guessVal] || 0;
+        let targetPower = arcOrder[targetVal] || 0;
+        let arrow = guessPower < targetPower ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
+        return { class: 'wrong', arrow: arrow };
+    }
+
+    // 4. DEFAULT (Gender, Origin, Alias)
+    return { class: 'wrong', arrow: '' };
 }
 
 function handleGuess(guess) {
     if (guessedNames.includes(guess.name) || isGameOver) return;
-    
     guessedNames.push(guess.name);
     searchInput.value = '';
     suggestionBox.innerHTML = '';
@@ -178,13 +192,12 @@ function handleGuess(guess) {
     const row = document.createElement('div');
     row.className = 'row';
     
-    // Define the order of properties to show
     const schema = [
         { key: 'img', type: 'img' },
         { key: 'gender', type: 'text' },
         { key: 'age', type: 'number' },
         { key: 'height', type: 'number' },
-        { key: 'arc', type: 'text' },
+        { key: 'arc', type: 'arc' },
         { key: 'origin', type: 'text' },
         { key: 'alias', type: 'text' }
     ];
@@ -195,13 +208,13 @@ function handleGuess(guess) {
         const targetVal = target[item.key];
 
         if (item.type === 'img') {
-            span.innerHTML = `<img src="images/${val}" onerror="this.src='https://via.placeholder.com/70'">`;
+            span.innerHTML = `<img src="images/${val}" onerror="this.src='https://via.placeholder.com/75'">`;
         } else {
-            const result = getComparison(val, targetVal, item.type === 'number');
-            span.className = result.class;
-            // Add suffix for height
-            const displayVal = (item.key === 'height') ? val + 'cm' : val;
-            span.innerHTML = `<div>${displayVal}${result.arrow}</div>`;
+            const res = getComparison(val, targetVal, item.type);
+            span.className = res.class;
+            let displayVal = val;
+            if (item.key === 'height' && val !== "Unknown") displayVal += "cm";
+            span.innerHTML = `<div>${displayVal}</div>${res.arrow}`;
         }
         row.appendChild(span);
     });
@@ -210,24 +223,19 @@ function handleGuess(guess) {
     if (guess.name === target.name) endTheGame(true);
 }
 
-// 4. END GAME & PINNING
 function endTheGame(won) {
     isGameOver = true;
     searchInput.disabled = true;
-    
-    const resultDiv = document.getElementById('pinnedResult');
-    resultDiv.classList.remove('hidden');
-    
+    const resDiv = document.getElementById('pinnedResult');
+    resDiv.classList.remove('hidden');
     document.getElementById('pImg').src = `images/${target.img}`;
     document.getElementById('pName').innerText = target.name;
     document.getElementById('pDetails').innerHTML = `
-        <strong>Age:</strong> ${target.age} | <strong>Height:</strong> ${target.height}cm<br>
-        <strong>First Arc:</strong> ${target.arc} | <strong>Origin:</strong> ${target.origin}<br>
-        <strong>Affiliation:</strong> ${target.alias}
+        <strong>Age:</strong> ${target.age} | <strong>Height:</strong> ${target.height}${target.height === "Unknown" ? "" : "cm"}<br>
+        <strong>Arc:</strong> ${target.arc} | <strong>Affiliation:</strong> ${target.alias}
     `;
-    
     if (won) {
-        document.getElementById('resultHeader').innerText = "CASE CLOSED! 🔍";
+        document.getElementById('resultHeader').innerText = "CASE SOLVED! 🔍";
         document.getElementById('resultHeader').style.color = "#27ae60";
         confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
     } else {
