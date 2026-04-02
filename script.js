@@ -137,9 +137,12 @@ const suggestionBox = document.getElementById('suggestionBox');
 const guessList = document.getElementById('guessList');
 const giveUpBtn = document.getElementById('giveUpBtn');
 
+// Fallback image if yours are missing
+const placeholder = "https://placehold.co/100x100/333/white?text=No+Img";
+
 giveUpBtn.onclick = () => { if (!isGameOver) endTheGame(false); };
 
-// SEARCH LOGIC
+// SEARCH SYSTEM
 searchInput.addEventListener('input', () => {
     if (isGameOver) return;
     const val = searchInput.value.toLowerCase().trim();
@@ -151,49 +154,46 @@ searchInput.addEventListener('input', () => {
         filtered.forEach(c => {
             const div = document.createElement('div');
             div.className = 'suggest-item';
-            div.innerHTML = `<img src="images/${c.img}" onerror="this.src='https://via.placeholder.com/60'"><span>${c.name}</span>`;
+            div.innerHTML = `<img src="images/${c.img}" onerror="this.src='${placeholder}'"><span>${c.name}</span>`;
             div.onclick = () => handleGuess(c);
             suggestionBox.appendChild(div);
         });
     }
 });
 
-// THE FIX: POWERFUL COMPARISON ENGINE
+// COMPARISON SYSTEM
 function getComparison(guessVal, targetVal, type) {
-    // 1. If it's an exact match, it's Green. No arrows needed.
+    // Exact Match (including "Unknown" matching "Unknown")
     if (String(guessVal).toLowerCase() === String(targetVal).toLowerCase()) {
         return { class: 'correct', arrow: '' };
     }
 
-    // 2. AGE & HEIGHT LOGIC (Numbers)
+    // Numbers (Age / Height)
     if (type === 'number') {
-        // If either is "Unknown", no arrow can exist
         if (guessVal === "Unknown" || targetVal === "Unknown") {
-            return { class: 'wrong', arrow: '' };
+            return { class: 'wrong', arrow: '' }; // Red, no arrow
         }
-        // Use Number() to ensure we aren't comparing text
-        const gNum = Number(guessVal);
-        const tNum = Number(targetVal);
+        const gNum = parseFloat(guessVal);
+        const tNum = parseFloat(targetVal);
         
+        // If target is BIGGER than guess -> Up Arrow
         let arrow = gNum < tNum ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
         return { class: 'wrong', arrow: arrow };
     }
 
-    // 3. ARC LOGIC (Chronology)
+    // Arcs
     if (type === 'arc') {
         const gArc = guessVal.toLowerCase();
         const tArc = targetVal.toLowerCase();
 
-        // Check if BOTH are in our "Main 7" list
+        // Only show arrows if BOTH are in the main 7 list
         if (arcOrder[gArc] && arcOrder[tArc]) {
             let arrow = arcOrder[gArc] < arcOrder[tArc] ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
             return { class: 'wrong', arrow: arrow };
         }
-        // If one is a "Movie" or not in the list, show red but NO arrow
-        return { class: 'wrong', arrow: '' };
+        return { class: 'wrong', arrow: '' }; // Movie/Special -> No arrow
     }
 
-    // 4. DEFAULT (Gender, Origin, etc.)
     return { class: 'wrong', arrow: '' };
 }
 
@@ -222,7 +222,7 @@ function handleGuess(guess) {
         const targetVal = target[item.key];
 
         if (item.type === 'img') {
-            span.innerHTML = `<img src="images/${val}" onerror="this.src='https://via.placeholder.com/75'">`;
+            span.innerHTML = `<img src="images/${val}" onerror="this.src='${placeholder}'">`;
         } else {
             const res = getComparison(val, targetVal, item.type);
             span.className = res.class;
@@ -243,6 +243,7 @@ function endTheGame(won) {
     const resDiv = document.getElementById('pinnedResult');
     resDiv.classList.remove('hidden');
     document.getElementById('pImg').src = `images/${target.img}`;
+    document.getElementById('pImg').onerror = function() { this.src = placeholder; };
     document.getElementById('pName').innerText = target.name;
     document.getElementById('pDetails').innerHTML = `
         <strong>Age:</strong> ${target.age} | <strong>Height:</strong> ${target.height}${target.height === "Unknown" ? "" : "cm"}<br>
