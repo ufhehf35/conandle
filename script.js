@@ -139,6 +139,7 @@ const giveUpBtn = document.getElementById('giveUpBtn');
 
 giveUpBtn.onclick = () => { if (!isGameOver) endTheGame(false); };
 
+// SEARCH LOGIC
 searchInput.addEventListener('input', () => {
     if (isGameOver) return;
     const val = searchInput.value.toLowerCase().trim();
@@ -157,29 +158,42 @@ searchInput.addEventListener('input', () => {
     }
 });
 
+// THE FIX: POWERFUL COMPARISON ENGINE
 function getComparison(guessVal, targetVal, type) {
-    // 1. EXACT MATCH
-    if (guessVal === targetVal) return { class: 'correct', arrow: '' };
+    // 1. If it's an exact match, it's Green. No arrows needed.
+    if (String(guessVal).toLowerCase() === String(targetVal).toLowerCase()) {
+        return { class: 'correct', arrow: '' };
+    }
 
-    // 2. UNKNOWN LOGIC (For Age and Height)
+    // 2. AGE & HEIGHT LOGIC (Numbers)
     if (type === 'number') {
+        // If either is "Unknown", no arrow can exist
         if (guessVal === "Unknown" || targetVal === "Unknown") {
-            return { class: 'wrong', arrow: '' }; // Red, no arrow
+            return { class: 'wrong', arrow: '' };
         }
-        // Both are numbers, compare them
-        let arrow = guessVal < targetVal ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
+        // Use Number() to ensure we aren't comparing text
+        const gNum = Number(guessVal);
+        const tNum = Number(targetVal);
+        
+        let arrow = gNum < tNum ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
         return { class: 'wrong', arrow: arrow };
     }
 
-    // 3. ARC SYSTEM LOGIC
+    // 3. ARC LOGIC (Chronology)
     if (type === 'arc') {
-        let guessPower = arcOrder[guessVal] || 0;
-        let targetPower = arcOrder[targetVal] || 0;
-        let arrow = guessPower < targetPower ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
-        return { class: 'wrong', arrow: arrow };
+        const gArc = guessVal.toLowerCase();
+        const tArc = targetVal.toLowerCase();
+
+        // Check if BOTH are in our "Main 7" list
+        if (arcOrder[gArc] && arcOrder[tArc]) {
+            let arrow = arcOrder[gArc] < arcOrder[tArc] ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
+            return { class: 'wrong', arrow: arrow };
+        }
+        // If one is a "Movie" or not in the list, show red but NO arrow
+        return { class: 'wrong', arrow: '' };
     }
 
-    // 4. DEFAULT (Gender, Origin, Alias)
+    // 4. DEFAULT (Gender, Origin, etc.)
     return { class: 'wrong', arrow: '' };
 }
 
