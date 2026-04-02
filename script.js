@@ -15,7 +15,7 @@ const characters = [
   { "name": "Conan Edogawa", "gender": "Male", "age": "7", "height": "102cm", "arc": "introduction", "origin": "Japan", "alias": "detective boys", "img": "conan.png" },
   { "name": "Ran Mouri", "gender": "Female", "age": "17", "height": "160cm", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "ran.png" },
   { "name": "Kogoro Mouri", "gender": "Male", "age": "38", "height": "181cm", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "kogoro.png" },
-  { "name": "Eri Kisaki", "gender": "Female", "age": "38", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "eri.png" },
+  { "name": "Eri Kisaki", "gender": "Female", "age": "38", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "eri.png" },
   { "name": "Hiroshi Agasa", "gender": "Male", "age": "52", "height": "160cm", "arc": "introduction", "origin": "Japan", "alias": "detective boys", "img": "agasa.png" },
   { "name": "Ai Haibara", "gender": "Female", "age": "7", "height": "104cm", "arc": "haibara", "origin": "Japan", "alias": "detective boys", "img": "haibara.png" },
 
@@ -43,7 +43,7 @@ const characters = [
 
   // --- Osaka Characters ---
   { "name": "Heiji Hattori", "gender": "Male", "age": "17", "height": "174cm", "arc": "introduction", "origin": "Japan", "alias": "high school detective", "img": "heiji.png" },
-  { "name": "Kazuha Toyama", "gender": "Female", "age": "17", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "kazuha.png" },
+  { "name": "Kazuha Toyama", "gender": "Female", "age": "17", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "kazuha.png" },
   { "name": "Heizo Hattori", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "heizo.png" },
 
   // --- Police Force ---
@@ -56,7 +56,7 @@ const characters = [
 
   // --- Magic Kaito Characters ---
   { "name": "Kaito Kuroba", "gender": "Male", "age": "17", "height": "174cm", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "kaito.png" },
-  { "name": "Toichi Kuroba", "gender": "Male", "age": "38", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "toichi.png" },
+  { "name": "Toichi Kuroba", "gender": "Male", "age": "38", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "toichi.png" },
   { "name": "Saguru Hakuba", "gender": "Male", "age": "17", "height": "180cm", "arc": "introduction", "origin": "UK/Japan", "alias": "high school detective", "img": "hakuba.png" },
 
   // --- Police & Investigators ---
@@ -73,22 +73,22 @@ const characters = [
 
   // --- Rum Arc & Related ---
   { "name": "Rumi Wakasa", "gender": "Female", "age": "37", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "high school", "img": "wakasa.png" },
-  { "name": "Kanenori Wakita", "gender": "Male", "age": "56", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "BO", "img": "wakita.png" },
+  { "name": "Kanenori Wakita", "gender": "Male", "age": "56", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "other", "img": "wakita.png" },
   { "name": "Masumi Sera", "gender": "Female", "age": "17", "height": "Unknown", "arc": "barboun", "origin": "Japan/UK", "alias": "high school detective", "img": "sera.png" },
-  { "name": "Subaru Okiya", "gender": "Male", "age": "27", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "fbi", "img": "subaru.png" },
-  { "name": "Mary Sera", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "rum", "origin": "UK", "alias": "cia", "img": "mary.png" },
+  { "name": "Subaru Okiya", "gender": "Male", "age": "27", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "high school", "img": "subaru.png" },
+  { "name": "Mary Sera", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "rum", "origin": "UK", "alias": "mi6", "img": "mary.png" },
   { "name": "Tsutomu Akai", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "rum", "origin": "Japan/UK", "alias": "cia", "img": "tsutomu.png" },
   { "name": "Shukichi Haneda", "gender": "Male", "age": "28", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "high school", "img": "shukichi.png" },
   { "name": "Kohji Haneda", "gender": "Male", "age": "17", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "high school", "img": "kohji.png" },
 
   // --- Kudo & Mouri Families/Associates ---
-  { "name": "Yukiko Kudo", "gender": "Female", "age": "37", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "yukiko.png" },
-  { "name": "Yusaku Kudo", "gender": "Male", "age": "38", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "yusaku.png" },
+  { "name": "Yukiko Kudo", "gender": "Female", "age": "37", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "yukiko.png" },
+  { "name": "Yusaku Kudo", "gender": "Male", "age": "38", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "yusaku.png" },
   { "name": "Eisuke Hondou", "gender": "Male", "age": "17", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "cia", "img": "eisuke.png" },
-  { "name": "Midori Kuriyama", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "kuriyama.png" },
-  { "name": "Sakurako Yonehara", "gender": "Female", "age": "23", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "high school", "img": "sakurako.png" },
+  { "name": "Midori Kuriyama", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "kuriyama.png" },
+  { "name": "Sakurako Yonehara", "gender": "Female", "age": "23", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "other", "img": "sakurako.png" },
   { "name": "Tomoaki Araide", "gender": "Male", "age": "25", "height": "Unknown", "arc": "vermouth", "origin": "Japan", "alias": "high school", "img": "araide.png" },
-  { "name": "Azusa Enomoto", "gender": "Female", "age": "23", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "azusa.png" },
+  { "name": "Azusa Enomoto", "gender": "Female", "age": "23", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "azusa.png" },
 
   // --- Traffic Department & Friends ---
   { "name": "Yumi Miyamoto", "gender": "Female", "age": "28", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "yumi.png" },
@@ -96,17 +96,17 @@ const characters = [
   { "name": "Chihaya Hagiwara", "gender": "Female", "age": "31", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "police", "img": "chihaya.png" },
   { "name": "Makoto Kyogoku", "gender": "Male", "age": "18", "height": "184cm", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "makoto.png" },
   { "name": "Sonoko Suzuki", "gender": "Female", "age": "17", "height": "162cm", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "sonoko.png" },
-  { "name": "Jirokichi Suzuki", "gender": "Male", "age": "72", "height": "Unknown", "arc": "vermouth", "origin": "Japan", "alias": "high school", "img": "jirokichi.png" },
+  { "name": "Jirokichi Suzuki", "gender": "Male", "age": "72", "height": "Unknown", "arc": "vermouth", "origin": "Japan", "alias": "other", "img": "jirokichi.png" },
 
   // --- Magic Kaito / Hattori Related ---
   { "name": "Akako Koizumi", "gender": "Female", "age": "17", "height": "163cm", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "akako.png" },
   { "name": "Ginzo Nakamori", "gender": "Male", "age": "41", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "nakamori.png" },
   { "name": "Aoko Nakamori", "gender": "Female", "age": "17", "height": "160cm", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "aoko.png" },
-  { "name": "Shizuka Hattori", "gender": "Female", "age": "42", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "shizuka.png" },
-  { "name": "Momiji Ooka", "gender": "Female", "age": "17", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "high school", "img": "momiji.png" },
+  { "name": "Shizuka Hattori", "gender": "Female", "age": "42", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "shizuka.png" },
+  { "name": "Momiji Ooka", "gender": "Female", "age": "17", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "other", "img": "momiji.png" },
   { "name": "Muga Iori", "gender": "Male", "age": "30", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "police", "img": "iori.png" },
-  { "name": "Chikage Kuroba", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "chikage.png" },
-  { "name": "Konosuke Jii", "gender": "Male", "age": "61", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "jii.png" },
+  { "name": "Chikage Kuroba", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "chikage.png" },
+  { "name": "Konosuke Jii", "gender": "Male", "age": "61", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "jii.png" },
 
   // --- Black Organization / Wild Police Story ---
   { "name": "Akemi Miyano", "gender": "Female", "age": "24", "height": "161cm", "arc": "introduction", "origin": "Japan", "alias": "BO", "img": "akemi.png" },
@@ -123,9 +123,8 @@ const characters = [
   { "name": "Wataru Date", "gender": "Male", "age": "28", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "police", "img": "date.png" },
 
   // --- Others / Movie Specific ---
-  { "name": "Hiroki Sawada", "gender": "Male", "age": "10", "height": "Unknown", "arc": "movies", "origin": "USA/Japan", "alias": "detective boys", "img": "hiroki.png" },
   { "name": "Fusae Campbell", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "UK/Japan", "alias": "high school", "img": "fusae.png" },
-  { "name": "Sumiko Kobayashi", "gender": "Female", "age": "26", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "detective boys", "img": "kobayashi.png" }
+  { "name": "Sumiko Kobayashi", "gender": "Female", "age": "26", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "kobayashi.png" }
 ];
 
 let target = characters[Math.floor(Math.random() * characters.length)];
