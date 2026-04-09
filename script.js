@@ -151,26 +151,20 @@ const searchInput = document.getElementById('charSearch');
 const suggestionBox = document.getElementById('suggestionBox');
 const guessList = document.getElementById('guessList');
 const giveUpBtn = document.getElementById('giveUpBtn');
-
 const placeholder = "https://placehold.co/100x100/333/white?text=No+Img";
 
 giveUpBtn.onclick = () => { if (!isGameOver) endTheGame(false); };
 
-// SEARCH SYSTEM WITH ALIAS SUPPORT
 searchInput.addEventListener('input', () => {
     if (isGameOver) return;
     const val = searchInput.value.toLowerCase().trim();
     suggestionBox.innerHTML = '';
-    
     if (val) {
         const filtered = characters.filter(c => {
-            // Check if Main Name matches OR any SearchName alias matches
             const nameMatch = c.name.toLowerCase().includes(val);
-            const aliasMatch = c.searchNames && c.searchNames.some(alias => alias.toLowerCase().includes(val));
-            
+            const aliasMatch = c.searchNames && c.searchNames.some(a => a.toLowerCase().includes(val));
             return (nameMatch || aliasMatch) && !guessedNames.includes(c.name);
         });
-
         filtered.forEach(c => {
             const div = document.createElement('div');
             div.className = 'suggest-item';
@@ -181,35 +175,23 @@ searchInput.addEventListener('input', () => {
     }
 });
 
-// STRICTOR COMPARISON ENGINE
 function getComparison(guessVal, targetVal, type) {
-    if (String(guessVal).toLowerCase() === String(targetVal).toLowerCase()) {
-        return { class: 'correct', arrow: '' };
-    }
+    if (String(guessVal).toLowerCase() === String(targetVal).toLowerCase()) return { class: 'correct', arrow: '' };
 
     if (type === 'number') {
-        if (guessVal === "Unknown" || targetVal === "Unknown") {
-            return { class: 'wrong', arrow: '' };
-        }
+        if (guessVal === "Unknown" || targetVal === "Unknown") return { class: 'wrong', arrow: '' };
         const gNum = parseFloat(guessVal);
         const tNum = parseFloat(targetVal);
-        
-        // Target is OLDER/TALLER than your guess? Arrow points UP.
-        let arrow = gNum < tNum ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
-        return { class: 'wrong', arrow: arrow };
+        return { class: 'wrong', arrow: gNum < tNum ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>' };
     }
 
     if (type === 'arc') {
         const gArc = guessVal.toLowerCase();
         const tArc = targetVal.toLowerCase();
-
         if (arcOrder[gArc] && arcOrder[tArc]) {
-            let arrow = arcOrder[gArc] < arcOrder[tArc] ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
-            return { class: 'wrong', arrow: arrow };
+            return { class: 'wrong', arrow: arcOrder[gArc] < arcOrder[tArc] ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>' };
         }
-        return { class: 'wrong', arrow: '' };
     }
-
     return { class: 'wrong', arrow: '' };
 }
 
@@ -221,34 +203,24 @@ function handleGuess(guess) {
     
     const row = document.createElement('div');
     row.className = 'row';
-    
     const schema = [
-        { key: 'img', type: 'img' },
-        { key: 'gender', type: 'text' },
-        { key: 'age', type: 'number' },
-        { key: 'height', type: 'number' },
-        { key: 'arc', type: 'arc' },
-        { key: 'origin', type: 'text' },
-        { key: 'alias', type: 'text' }
+        { key: 'img', type: 'img' }, { key: 'gender', type: 'text' }, { key: 'age', type: 'number' },
+        { key: 'height', type: 'number' }, { key: 'arc', type: 'arc' }, { key: 'origin', type: 'text' }, { key: 'alias', type: 'text' }
     ];
 
     schema.forEach(item => {
         const span = document.createElement('span');
-        const val = guess[item.key];
-        const targetVal = target[item.key];
-
+        const res = getComparison(guess[item.key], target[item.key], item.type);
         if (item.type === 'img') {
-            span.innerHTML = `<img src="images/${val}" onerror="this.src='${placeholder}'">`;
+            span.innerHTML = `<img src="images/${guess[item.key]}" onerror="this.src='${placeholder}'">`;
         } else {
-            const res = getComparison(val, targetVal, item.type);
             span.className = res.class;
-            let displayVal = val;
-            if (item.key === 'height' && val !== "Unknown") displayVal += "cm";
-            span.innerHTML = `<div>${displayVal}</div>${res.arrow}`;
+            let display = guess[item.key];
+            if (item.key === 'height' && display !== "Unknown") display += "cm";
+            span.innerHTML = `<div>${display}</div>${res.arrow}`;
         }
         row.appendChild(span);
     });
-
     guessList.prepend(row);
     if (guess.name === target.name) endTheGame(true);
 }
@@ -256,22 +228,15 @@ function handleGuess(guess) {
 function endTheGame(won) {
     isGameOver = true;
     searchInput.disabled = true;
-    const resDiv = document.getElementById('pinnedResult');
-    resDiv.classList.remove('hidden');
+    document.getElementById('pinnedResult').classList.remove('hidden');
     document.getElementById('pImg').src = `images/${target.img}`;
-    document.getElementById('pImg').onerror = function() { this.src = placeholder; };
     document.getElementById('pName').innerText = target.name;
-    document.getElementById('pDetails').innerHTML = `
-        <strong>Age:</strong> ${target.age} | <strong>Height:</strong> ${target.height}${target.height === "Unknown" ? "" : "cm"}<br>
-        <strong>Arc:</strong> ${target.arc} | <strong>Affiliation:</strong> ${target.alias}
-    `;
+    document.getElementById('pDetails').innerText = `${target.age} | ${target.height}cm | ${target.arc}`;
     if (won) {
         document.getElementById('resultHeader').innerText = "CASE SOLVED! 🔍";
-        document.getElementById('resultHeader').style.color = "#27ae60";
         confetti({ particleCount: 200, spread: 100, origin: { y: 0.6 } });
     } else {
-        document.getElementById('resultHeader').innerText = "FAILED! THE CULPRIT WAS:";
-        document.getElementById('resultHeader').style.color = "#e74c3c";
+        document.getElementById('resultHeader').innerText = "FAILED! CULPRIT:";
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
