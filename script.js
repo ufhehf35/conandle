@@ -1,17 +1,38 @@
-// Order of Arcs for the arrow system
+// 1. ARC HIERARCHY
 const arcOrder = {
-    "Introduction": 1,
-    "Haibara": 2,
-    "Vermouth": 3,
-    "Kir": 4,
-    "Bourbon": 5,
-    "Scarlet": 6,
-    "Rum": 7
+    "introduction": 1,
+    "haibara": 2,
+    "vermouth": 3,
+    "kir": 4,
+    "bourbon": 5,
+    "scarlet": 6,
+    "rum": 7
 };
 
+// 2. CHARACTER DATABASE 
+// Added 'searchNames' property for aliases
 const characters = [
- // --- Protagonists & Close Allies ---
-  { "name": "Shinichi Kudo", "gender": "Male", "age": "17", "height": "174cm", "arc": "introduction", "origin": "Japan", "alias": "high school detective", "img": "shinichi.png" },
+    { 
+        name: "Rei Furuya", gender: "Male", age: 29, height: 180, arc: "Bourbon", origin: "Japan", alias: "BO / Police", img: "rei.png",
+        searchNames: ["Bourbon", "Amuro Tooru", "Zero", "Furuya Rei", "Tooru Amuro"] 
+    },
+    { 
+        name: "Rum", gender: "Male", age: "Unknown", height: "Unknown", arc: "Rum", origin: "Japan", alias: "BO", img: "rum.png",
+        searchNames: ["Wakita Kanenori", "Kanenori Wakita", "Rum"] 
+    },
+    { 
+        name: "Hiromitsu Morofushi", gender: "Male", age: 26, height: "Unknown", arc: "Bourbon", origin: "Japan", alias: "BO / Police", img: "hiromitsu.png",
+        searchNames: ["Scotch", "Hiromitsu Morofushi", "Morofushi Hiromitsu"] 
+    },
+    { 
+        name: "Hidemi Hondou", gender: "Female", age: 27, height: "Unknown", arc: "Kir", origin: "Japan", alias: "CIA / BO", img: "hidemi.png",
+        searchNames: ["Mizunashi Rena", "Rena Mizunashi", "Kir", "Hidemi Hondou"] 
+    },
+    { 
+        name: "Shuichi Akai", gender: "Male", age: 32, height: 188, arc: "Vermouth", origin: "UK / Japan", alias: "FBI / BO", img: "akai.png",
+        searchNames: ["Akai Shuichi", "Dai Moroboshi", "Rye", "Subaru Okiya"] 
+    },
+{ "name": "Shinichi Kudo", "gender": "Male", "age": "17", "height": "174cm", "arc": "introduction", "origin": "Japan", "alias": "high school detective", "img": "shinichi.png" },
   { "name": "Conan Edogawa", "gender": "Male", "age": "7", "height": "102cm", "arc": "introduction", "origin": "Japan", "alias": "detective boys", "img": "conan.png" },
   { "name": "Ran Mouri", "gender": "Female", "age": "17", "height": "160cm", "arc": "introduction", "origin": "Japan", "alias": "high school", "img": "ran.png" },
   { "name": "Kogoro Mouri", "gender": "Male", "age": "38", "height": "181cm", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "kogoro.png" },
@@ -31,12 +52,9 @@ const characters = [
   { "name": "Chianti", "gender": "Female", "age": "Unknown", "height": "165cm", "arc": "vermouth", "origin": "Japan", "alias": "BO", "img": "chianti.png" },
   { "name": "Korn", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "vermouth", "origin": "Japan", "alias": "BO", "img": "korn.png" },
   { "name": "Renya Karasuma", "gender": "Male", "age": "99+", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "BO", "img": "karasuma.png" },
-  { "name": "Rum", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "BO", "img": "rum.png" },
-  { "name": "Rei Furuya", "gender": "Male", "age": "29", "height": "180cm", "arc": "barboun", "origin": "Japan", "alias": "police", "img": "rei.png" },
-  { "name": "Hidemi Hondou", "gender": "Female", "age": "27", "height": "Unknown", "arc": "vermouth", "origin": "Japan", "alias": "cia", "img": "hidemi.png" },
+  
 
   // --- FBI & Law Enforcement ---
-  { "name": "Shuichi Akai", "gender": "Male", "age": "32", "height": "188cm", "arc": "vermouth", "origin": "USA", "alias": "fbi", "img": "akai.png" },
   { "name": "Jodie Starling", "gender": "Female", "age": "28", "height": "Unknown", "arc": "vermouth", "origin": "USA", "alias": "fbi", "img": "jodie.png" },
   { "name": "James Black", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "vermouth", "origin": "UK/USA", "alias": "fbi", "img": "james.png" },
   { "name": "Andre Camel", "gender": "Male", "age": "27", "height": "Unknown", "arc": "barboun", "origin": "USA", "alias": "fbi", "img": "camel.png" },
@@ -73,7 +91,6 @@ const characters = [
 
   // --- Rum Arc & Related ---
   { "name": "Rumi Wakasa", "gender": "Female", "age": "37", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "high school", "img": "wakasa.png" },
-  { "name": "Kanenori Wakita", "gender": "Male", "age": "56", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "other", "img": "wakita.png" },
   { "name": "Masumi Sera", "gender": "Female", "age": "17", "height": "Unknown", "arc": "barboun", "origin": "Japan/UK", "alias": "high school detective", "img": "sera.png" },
   { "name": "Subaru Okiya", "gender": "Male", "age": "27", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "high school", "img": "subaru.png" },
   { "name": "Mary Sera", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "rum", "origin": "UK", "alias": "mi6", "img": "mary.png" },
@@ -117,7 +134,6 @@ const characters = [
   { "name": "Calvados", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "vermouth", "origin": "Unknown", "alias": "BO", "img": "calvados.png" },
   { "name": "Curaçao", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "movies", "origin": "Unknown", "alias": "BO", "img": "curacao.png" },
   { "name": "Irish", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "movies", "origin": "Unknown", "alias": "BO", "img": "irish.png" },
-  { "name": "Scotch", "gender": "Male", "age": "Unknown", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "police", "img": "scotch.png" },
   { "name": "Jinpei Matsuda", "gender": "Male", "age": "26", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "matsuda.png" },
   { "name": "Kenji Hagiwara", "gender": "Male", "age": "22", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "police", "img": "hagiwara_k.png" },
   { "name": "Wataru Date", "gender": "Male", "age": "28", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "police", "img": "date.png" },
@@ -136,20 +152,25 @@ const suggestionBox = document.getElementById('suggestionBox');
 const guessList = document.getElementById('guessList');
 const giveUpBtn = document.getElementById('giveUpBtn');
 
-// Fallback image if yours are missing
 const placeholder = "https://placehold.co/100x100/333/white?text=No+Img";
 
 giveUpBtn.onclick = () => { if (!isGameOver) endTheGame(false); };
 
-// SEARCH SYSTEM
+// SEARCH SYSTEM WITH ALIAS SUPPORT
 searchInput.addEventListener('input', () => {
     if (isGameOver) return;
     const val = searchInput.value.toLowerCase().trim();
     suggestionBox.innerHTML = '';
+    
     if (val) {
-        const filtered = characters.filter(c => 
-            c.name.toLowerCase().includes(val) && !guessedNames.includes(c.name)
-        );
+        const filtered = characters.filter(c => {
+            // Check if Main Name matches OR any SearchName alias matches
+            const nameMatch = c.name.toLowerCase().includes(val);
+            const aliasMatch = c.searchNames && c.searchNames.some(alias => alias.toLowerCase().includes(val));
+            
+            return (nameMatch || aliasMatch) && !guessedNames.includes(c.name);
+        });
+
         filtered.forEach(c => {
             const div = document.createElement('div');
             div.className = 'suggest-item';
@@ -160,37 +181,33 @@ searchInput.addEventListener('input', () => {
     }
 });
 
-// COMPARISON SYSTEM
+// STRICTOR COMPARISON ENGINE
 function getComparison(guessVal, targetVal, type) {
-    // Exact Match (including "Unknown" matching "Unknown")
     if (String(guessVal).toLowerCase() === String(targetVal).toLowerCase()) {
         return { class: 'correct', arrow: '' };
     }
 
-    // Numbers (Age / Height)
     if (type === 'number') {
         if (guessVal === "Unknown" || targetVal === "Unknown") {
-            return { class: 'wrong', arrow: '' }; // Red, no arrow
+            return { class: 'wrong', arrow: '' };
         }
         const gNum = parseFloat(guessVal);
         const tNum = parseFloat(targetVal);
         
-        // If target is BIGGER than guess -> Up Arrow
+        // Target is OLDER/TALLER than your guess? Arrow points UP.
         let arrow = gNum < tNum ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
         return { class: 'wrong', arrow: arrow };
     }
 
-    // Arcs
     if (type === 'arc') {
         const gArc = guessVal.toLowerCase();
         const tArc = targetVal.toLowerCase();
 
-        // Only show arrows if BOTH are in the main 7 list
         if (arcOrder[gArc] && arcOrder[tArc]) {
             let arrow = arcOrder[gArc] < arcOrder[tArc] ? '<span class="arrow">↑</span>' : '<span class="arrow">↓</span>';
             return { class: 'wrong', arrow: arrow };
         }
-        return { class: 'wrong', arrow: '' }; // Movie/Special -> No arrow
+        return { class: 'wrong', arrow: '' };
     }
 
     return { class: 'wrong', arrow: '' };
