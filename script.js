@@ -122,8 +122,6 @@ const characters = [
   { "name": "Shizuka Hattori", "gender": "Female", "age": "42", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "shizuka.png" },
   { "name": "Momiji Ooka", "gender": "Female", "age": "17", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "other", "img": "momiji.png" },
   { "name": "Muga Iori", "gender": "Male", "age": "30", "height": "Unknown", "arc": "rum", "origin": "Japan", "alias": "police", "img": "iori.png" },
-  { "name": "Chikage Kuroba", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "chikage.png" },
-  { "name": "Konosuke Jii", "gender": "Male", "age": "61", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "jii.png" },
 
   // --- Black Organization / Wild Police Story ---
   { "name": "Akemi Miyano", "gender": "Female", "age": "24", "height": "161cm", "arc": "introduction", "origin": "Japan", "alias": "BO", "img": "akemi.png" },
@@ -139,7 +137,6 @@ const characters = [
   { "name": "Wataru Date", "gender": "Male", "age": "28", "height": "Unknown", "arc": "barboun", "origin": "Japan", "alias": "police", "img": "date.png" },
 
   // --- Others / Movie Specific ---
-  { "name": "Fusae Campbell", "gender": "Female", "age": "Unknown", "height": "Unknown", "arc": "introduction", "origin": "UK/Japan", "alias": "high school", "img": "fusae.png" },
   { "name": "Sumiko Kobayashi", "gender": "Female", "age": "26", "height": "Unknown", "arc": "introduction", "origin": "Japan", "alias": "other", "img": "kobayashi.png" }
 ];
 
